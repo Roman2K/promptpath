@@ -38,15 +38,15 @@ type shortener struct {
 	longsRe   *regexp.Regexp
 }
 
-func newShortener(shortcuts map[string]string) (s *shortener) {
-	s = &shortener{shortcuts, nil}
+func newShortener(shortcuts map[string]string) *shortener {
+	s := &shortener{shortcuts, nil}
 	longs := make([]string, 0, len(s.shortcuts))
 	for long := range s.shortcuts {
-		longs = append(longs, long)
+		longs = append(longs, regexp.QuoteMeta(long))
 	}
 	sort.Sort(byLongest(longs))
 	s.longsRe = regexp.MustCompile(`^(` + strings.Join(longs, "|") + `)(?:/(.+)|$)`)
-	return
+	return s
 }
 
 func (s *shortener) Shorten(path string) string {
