@@ -54,7 +54,7 @@ func (s *shortener) Shorten(path string) string {
 		if m[2] == "" {
 			return s.shortcuts[m[1]]
 		}
-		return "\033[90m" + s.shortcuts[m[1]] + "/\033[0m" + m[2]
+		return "\\[\033[90m\\]" + s.shortcuts[m[1]] + "/\\[\033[0m\\]" + m[2]
 	}
 	return path
 }

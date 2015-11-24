@@ -31,17 +31,17 @@ func TestShorten(t *testing.T) {
 
 	assertShortens(t, s,
 		"/home/my/a",
-		"\033[90m~/\033[0ma")
+		"\\[\033[90m\\]~/\\[\033[0m\\]a")
 
 	assertShortens(t, s,
 		"/home/my/code/go/src/abc/def",
-		"\033[90mgo/\033[0mabc/def")
+		"\\[\033[90m\\]go/\\[\033[0m\\]abc/def")
 
 	assertShortens(t, s,
 		"/home/my/code/map/abc/def",
-		"\033[90mmap/\033[0mabc/def")
+		"\\[\033[90m\\]map/\\[\033[0m\\]abc/def")
 
 	assertShortens(t, s,
 		"/home/my/code/abc/def",
-		"\033[90mcode/\033[0mabc/def")
+		"\\[\033[90m\\]code/\\[\033[0m\\]abc/def")
 }
