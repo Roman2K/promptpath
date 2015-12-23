@@ -20,6 +20,7 @@ func init() {
 		home + "/code/go/src": "go",
 		home + "/code/map":    "map",
 		home + "/code":        "code",
+		home + "/tmp/go/src":  "tgo",
 		home:                  "~",
 	})
 }
