@@ -16,22 +16,35 @@ func init() {
 		fmt.Fprintln(os.Stderr, "$HOME not found, can't initialize")
 		os.Exit(1)
 	}
+	gosrc := home + "/code/go/src"
 	mainShortener = newShortener(map[string]string{
-		home + "/code/go/src": "go",
-		home + "/code/map":    "map",
-		home + "/code":        "code",
-		home + "/tmp/go/src":  "tgo",
-		home:                  "~",
+		home:               "~",
+		home + "/code":     "code",
+		home + "/code/map": "map",
+		gosrc:              "gosrc",
+		gosrc + "/github.com":                           "gogh",
+		gosrc + "/github.com/MonAlbumPhoto":             "gomap",
+		gosrc + "/github.com/MonAlbumPhoto/MAP-storage": "mapstorage",
 	})
 }
 
 func main() {
-	if len(os.Args) != 2 {
-		fmt.Fprintf(os.Stderr, "Usage: %s <path>\n", os.Args[0])
+	switch len(os.Args) {
+	case 1:
+		printMapping()
+	case 2:
+		path := os.Args[1]
+		os.Stdout.WriteString(mainShortener.Shorten(path))
+	default:
+		fmt.Fprintf(os.Stderr, "Usage: %s [path]\n", os.Args[0])
 		os.Exit(2)
 	}
-	path := os.Args[1]
-	os.Stdout.WriteString(mainShortener.Shorten(path))
+}
+
+func printMapping() {
+	for long, short := range mainShortener.shortcuts {
+		fmt.Printf("%s\t%s\n", short, long)
+	}
 }
 
 type shortener struct {
