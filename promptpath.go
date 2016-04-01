@@ -52,12 +52,17 @@ func newShortener(shortcuts map[string]string) *shortener {
 
 func (s *shortener) Shorten(path string) string {
 	if m := s.longsRe.FindStringSubmatch(path); m != nil {
+		short := s.shortcuts[m[1]]
 		if m[2] == "" {
-			return s.shortcuts[m[1]]
+			return short
 		}
-		return "\\[\033[90m\\]" + s.shortcuts[m[1]] + "/\\[\033[0m\\]" + m[2]
+		return color("90") + short + "/" + color("0") + m[2]
 	}
 	return path
+}
+
+func color(attributes string) string {
+	return "\\[\033[" + attributes + "m\\]"
 }
 
 type byLongest []string
