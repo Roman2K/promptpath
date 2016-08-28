@@ -25,6 +25,7 @@ func init() {
 		gosrc + "/github.com":                           "gogh",
 		gosrc + "/github.com/MonAlbumPhoto":             "gomap",
 		gosrc + "/github.com/MonAlbumPhoto/MAP-storage": "mapstorage",
+		gosrc + "/github.com/MonAlbumPhoto/MAP-workers": "mapworkers",
 	})
 }
 
