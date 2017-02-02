@@ -22,10 +22,11 @@ func init() {
 		home + "/code":     "code",
 		home + "/code/map": "map",
 		gosrc:              "gosrc",
-		gosrc + "/github.com":                           "gogh",
-		gosrc + "/github.com/MonAlbumPhoto":             "gomap",
 		gosrc + "/github.com/MonAlbumPhoto/MAP-storage": "mapstorage",
 		gosrc + "/github.com/MonAlbumPhoto/MAP-workers": "mapworkers",
+		gosrc + "/github.com/Roman2K":                   "gogh",
+		gosrc + "/gitlab.com/Roman2K":                   "gogl",
+		gosrc + "/gitlab.com/Roman2K/scat":              "scat",
 	})
 }
 
@@ -60,7 +61,9 @@ func newShortener(shortcuts map[string]string) *shortener {
 		longs = append(longs, regexp.QuoteMeta(long))
 	}
 	sort.Sort(byLongest(longs))
-	s.longsRe = regexp.MustCompile(`^(` + strings.Join(longs, "|") + `)(?:/(.+)|$)`)
+	s.longsRe = regexp.MustCompile(
+		`^(` + strings.Join(longs, "|") + `)(?:/(.+)|$)`,
+	)
 	return s
 }
 
