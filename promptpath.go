@@ -16,17 +16,32 @@ func init() {
 		fmt.Fprintln(os.Stderr, "$HOME not found, can't initialize")
 		os.Exit(1)
 	}
-	gosrc := home + "/code/go/src"
+	var (
+		gosrc = home + "/code/go/src"
+		gogh  = gosrc + "/github.com/Roman2K"
+		gomap = gosrc + "/github.com/MonAlbumPhoto"
+	)
 	mainShortener = newShortener(map[string]string{
-		home:               "~",
+		home: "~",
+
+		// code
 		home + "/code":     "code",
 		home + "/code/map": "map",
-		gosrc:              "gosrc",
-		gosrc + "/github.com/MonAlbumPhoto/MAP-storage": "mapstorage",
-		gosrc + "/github.com/MonAlbumPhoto/MAP-workers": "mapworkers",
-		gosrc + "/github.com/Roman2K":                   "gogh",
-		gosrc + "/gitlab.com/Roman2K":                   "gogl",
-		gosrc + "/gitlab.com/Roman2K/scat":              "scat",
+
+		// go
+		gosrc: "gosrc",
+
+		// go GitHub Roman2K
+		gogh:           "gogh",
+		gogh + "/scat": "scat",
+
+		// go GitHub MonAlbumPhoto
+		gomap: "gomap",
+		gomap + "/MAP-storage":         "mapstorage",
+		gomap + "/MAP-workers":         "mapworkers",
+		gomap + "/MAP-download-images": "mapdlimages",
+		gomap + "/map-post-image":      "mappostimage",
+		gomap + "/map-process-image":   "mapprocessimage",
 	})
 }
 
