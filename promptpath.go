@@ -88,7 +88,7 @@ func (s *shortener) Shorten(path string) string {
 		if m[2] == "" {
 			return short
 		}
-		return color("90") + short + "/" + color("0") + m[2]
+		return color("38;5;241") + short + "/" + color("0") + m[2]
 	}
 	return path
 }
