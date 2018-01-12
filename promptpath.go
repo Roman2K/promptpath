@@ -20,6 +20,7 @@ func init() {
 		gosrc = home + "/code/go/src"
 		gogh  = gosrc + "/github.com/Roman2K"
 		gomap = gosrc + "/github.com/MonAlbumPhoto"
+		glmap = gosrc + "/map-gitlab.bearstech.com/mon-album-photo"
 	)
 	mainShortener = newShortener(map[string]string{
 		home: "~",
@@ -42,6 +43,9 @@ func init() {
 		gomap + "/MAP-download-images": "mapdlimages",
 		gomap + "/map-post-image":      "mappostimage",
 		gomap + "/map-process-image":   "mapprocessimage",
+
+		// go GitLab MonAlbumPhoto
+		glmap: "glmap",
 	})
 }
 
