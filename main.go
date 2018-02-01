@@ -19,6 +19,7 @@ func init() {
 	var (
 		gosrc = home + "/code/go/src"
 		gogh  = gosrc + "/github.com/Roman2K"
+		gogl  = gosrc + "/gitlab.com/Roman2K"
 		gomap = gosrc + "/github.com/MonAlbumPhoto"
 		glmap = gosrc + "/map-gitlab.bearstech.com/mon-album-photo"
 	)
@@ -35,6 +36,9 @@ func init() {
 		// go GitHub Roman2K
 		gogh:           "gogh",
 		gogh + "/scat": "scat",
+
+		// go GitLab Roman2K
+		gogl: "gogl",
 
 		// go GitHub MonAlbumPhoto
 		gomap: "gomap",
