@@ -42,14 +42,14 @@ func init() {
 
 		// go GitHub MonAlbumPhoto
 		gomap: "gomap",
-		gomap + "/MAP-storage":         "mapstorage",
-		gomap + "/MAP-workers":         "mapworkers",
-		gomap + "/MAP-download-images": "mapdlimages",
-		gomap + "/map-post-image":      "mappostimage",
-		gomap + "/map-process-image":   "mapprocessimage",
 
 		// go GitLab MonAlbumPhoto
 		glmap: "glmap",
+		glmap + "/MAP-storage":         "mapstorage",
+		glmap + "/MAP-workers":         "mapworkers",
+		glmap + "/MAP-download-images": "mapdlimages",
+		glmap + "/map-post-image":      "mappostimage",
+		glmap + "/map-process-image":   "mapprocessimage",
 	})
 }
 
