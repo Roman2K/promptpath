@@ -52,6 +52,6 @@ class Mapping < Hash(String, String)
   end
 
   private def color(attrs)
-    "\e[#{attrs}m"
+    "\\[\e[#{attrs}m\\]"
   end
 end
