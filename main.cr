@@ -1,6 +1,7 @@
 require "yaml"
 
 mapping = Mapping.new
+mapping.load_env_val ENV.fetch("PROMPTPATH", "")
 File.open ENV["HOME"] + "/.config/promptpath.yaml" do |f|
   mapping.load YAML.parse(f)
 end
@@ -26,6 +27,13 @@ class Mapping < Hash(String, String)
         map { |k| Regex.escape k }.
         join "|"
     })(?:/(.+)|$)}
+  end
+
+  def load_env_val(s)
+    s.split(":").each do |kv|
+      name, abs = kv.split("=", 2)
+      self[abs] = name
+    end
   end
 
   private def fill(config, root)
